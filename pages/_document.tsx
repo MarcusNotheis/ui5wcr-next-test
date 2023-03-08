@@ -1,5 +1,6 @@
-import Document from "next/document";
-import { SheetsRegistry, JssProvider, createGenerateId } from "react-jss";
+import Document, { Head, Html, Main, NextScript } from "next/document";
+import React from "react";
+import { createGenerateId, JssProvider, SheetsRegistry } from "react-jss";
 
 export default class JssDocument extends Document {
   static async getInitialProps(ctx) {
@@ -27,5 +28,27 @@ export default class JssDocument extends Document {
         </>
       ),
     };
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head>
+          <script
+            data-ui5-config
+            type="application/json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                theme: "sap_fiori_3",
+              }),
+            }}
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }

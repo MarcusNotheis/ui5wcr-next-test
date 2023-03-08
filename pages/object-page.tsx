@@ -1,22 +1,23 @@
-import { DynamicPageHeader } from "@ui5/webcomponents-react/ssr/components/DynamicPageHeader";
-import { DynamicPageTitle } from "@ui5/webcomponents-react/ssr/components/DynamicPageTitle";
-import { FlexBox } from "@ui5/webcomponents-react/ssr/components/FlexBox";
-import { ObjectPage } from "@ui5/webcomponents-react/ssr/components/ObjectPage";
-import { ObjectPageSection } from "@ui5/webcomponents-react/ssr/components/ObjectPageSection";
-import { ObjectPageSubSection } from "@ui5/webcomponents-react/ssr/components/ObjectPageSubSection";
-import { ObjectStatus } from "@ui5/webcomponents-react/ssr/components/ObjectStatus";
+import iconAction from "@ui5/webcomponents-icons/dist/action.js";
+import iconDecline from "@ui5/webcomponents-icons/dist/decline.js";
+import iconExitFullScreen from "@ui5/webcomponents-icons/dist/exit-full-screen.js";
+import iconFullScreen from "@ui5/webcomponents-icons/dist/full-screen.js";
 import {
   Badge,
   Breadcrumbs,
   BreadcrumbsItem,
   Button,
+  DynamicPageHeader,
+  DynamicPageTitle,
+  FlexBox,
   Label,
+  ObjectPage,
+  ObjectPageSection,
+  ObjectPageSubSection,
+  ObjectStatus,
   Title,
-} from "@ui5/webcomponents-react/ssr/webComponents";
-import iconAction from '@ui5/webcomponents-icons/dist/action.js';
-import iconDecline from '@ui5/webcomponents-icons/dist/decline.js';
-import iconFullScreen from '@ui5/webcomponents-icons/dist/full-screen.js';
-import iconExitFullScreen from '@ui5/webcomponents-icons/dist/exit-full-screen.js';
+} from "@ui5/webcomponents-react/ssr";
+
 export default function ObjectPageSample() {
   return (
     <ObjectPage
@@ -46,16 +47,16 @@ export default function ObjectPageSample() {
               <Button design="Transparent" icon={iconAction} />
             </>
           }
-          breadcrumbs={
-            <Breadcrumbs>
-              <BreadcrumbsItem>Home</BreadcrumbsItem>
-              <BreadcrumbsItem>Page 1</BreadcrumbsItem>
-              <BreadcrumbsItem>Page 2</BreadcrumbsItem>
-              <BreadcrumbsItem>Page 3</BreadcrumbsItem>
-              <BreadcrumbsItem>Page 4</BreadcrumbsItem>
-              <BreadcrumbsItem>Page 5</BreadcrumbsItem>
-            </Breadcrumbs>
-          }
+          // breadcrumbs={
+          //   <Breadcrumbs>
+          //     <BreadcrumbsItem>Home</BreadcrumbsItem>
+          //     <BreadcrumbsItem>Page 1</BreadcrumbsItem>
+          //     <BreadcrumbsItem>Page 2</BreadcrumbsItem>
+          //     <BreadcrumbsItem>Page 3</BreadcrumbsItem>
+          //     <BreadcrumbsItem>Page 4</BreadcrumbsItem>
+          //     <BreadcrumbsItem>Page 5</BreadcrumbsItem>
+          //   </Breadcrumbs>
+          // }
           header={<Title>Header Title</Title>}
           navigationActions={
             <>
@@ -70,9 +71,14 @@ export default function ObjectPageSample() {
         </DynamicPageTitle>
       }
     >
-      <ObjectPageSection id={"first-section"}>
+      <ObjectPageSection id={"first-section"} titleText={"My SSR Section"}>
         <ObjectPageSubSection id={"first-subsection"}>
           <Label>Hi from Object Page</Label>
+        </ObjectPageSubSection>
+      </ObjectPageSection>
+      <ObjectPageSection id={"second-section"} titleText={"My Second Section"}>
+        <ObjectPageSubSection id={"second-subsection"}>
+          <Label>Hi from Object Page 2</Label>
         </ObjectPageSubSection>
       </ObjectPageSection>
     </ObjectPage>
